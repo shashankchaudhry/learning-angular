@@ -1,8 +1,7 @@
 <div class="container">
-<input class="form-control" [(ngModel)]="username">
-<p> {{ username }} </p>
-<button type="button"
-        [disabled]="isUsernameEmpty()" 
-        class="btn btn-primary" 
-        (click)="onClickUpdate()">Press Me!</button>
+<button class="btn btn-primary" (click)="reverseVisibility()">Display Details</button>
+<p *ngIf="visibility">Secret Password = Tuna</p>
+<p *ngFor="let count of clicks" 
+    [ngStyle]="{'background': getBackground(count)}"
+    [ngClass]="{'text-white': isFifthLog(count)}"> {{ count }} </p>
 </div>

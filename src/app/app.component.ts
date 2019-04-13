@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { visitSiblingRenderNodes } from '@angular/core/src/view/util';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  username: string;
+  visibility = true;
+  clicks = [];
+  clickCount = 1;
 
-  constructor() {
-    this.username='';
+  reverseVisibility() {
+    this.visibility = !this.visibility;
+    this.clicks.push(this.clickCount);
+    this.clickCount++;
   }
 
-  isUsernameEmpty() {
-    return this.username.length == 0;
+  isFifthLog(count) {
+    return count >= 5;
   }
 
-  onClickUpdate() {
-    this.username = '';
+  getBackground(count) {
+    if (this.isFifthLog(count)) {
+      return 'blue';
+    }
+    return 'white';
   }
 }
