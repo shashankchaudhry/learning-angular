@@ -1,3 +1,6 @@
+# Steps to start
+
+source ~/.profile (has the path to the NPM installation - export PATH=~/.npm-global/bin:$PATH)
 
 # MyFirstApp
 
